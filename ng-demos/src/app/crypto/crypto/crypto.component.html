@@ -1,0 +1,26 @@
+<table class="tablcoin">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Price in USD</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let c of this.service.coins">
+
+    <td >
+      {{c.name}}
+    </td>
+    <td >
+      {{c.symbol}}
+    </td>
+    <td >
+      {{c.price_usd}} $
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+
+
