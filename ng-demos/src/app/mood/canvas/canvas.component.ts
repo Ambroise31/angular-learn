@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MoodService} from "../mood.service";
 
 @Component({
@@ -8,18 +8,21 @@ import {MoodService} from "../mood.service";
 })
 export class CanvasComponent implements OnInit {
 
-  constructor(public service: MoodService) { }
+  constructor(public service: MoodService) {
+  }
 
   ngOnInit() {
   }
 
-  isHappy(){
-    return this.service.mood ==='happy';
+  isHappy() {
+    return this.service.mood === 'happy';
   }
-  isSoso(){
-    return this.service.mood ==='soso';
+
+  isSoso() {
+    return this.service.mood === 'soso';
   }
-  isAngry(){
-    return this.service.mood ==='angry';
+
+  isAngry() {
+    return this.service.mood === 'angry';
   }
 }

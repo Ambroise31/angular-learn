@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +8,10 @@ export class MoodService {
   mood = 'happy';
 
 
-  constructor() { }
+  constructor() {
+  }
 
-  updateMood(mood){
+  updateMood(mood) {
     this.mood = mood;
     console.log('change to ', mood);
   }

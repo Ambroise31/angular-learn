@@ -1,7 +1,11 @@
 <div class="image">
   <app-tablist></app-tablist>
+  <!--
+    <app-happy *ngIf="isHappy()"></app-happy>
+    <app-soso *ngIf="isSoso()"></app-soso>
+    <app-angry *ngIf="isAngry()"></app-angry>
+    -->
 
-  <app-happy *ngIf="isHappy()"></app-happy>
-  <app-soso *ngIf="isSoso()"></app-soso>
-  <app-angry *ngIf="isAngry()"></app-angry>
+  <app-mood-face [mood]="this.service.mood"></app-mood-face>
+
 </div>
