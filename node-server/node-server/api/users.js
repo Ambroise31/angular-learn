@@ -7,7 +7,7 @@ var jsonParser = bodyParser.json()
 
 
 function byId(id) {
-    return datasource.users.find(user => user.id === id)
+    return datasource.users.find(user => user.id === id);
 }
 
 /* GET users listing. */
