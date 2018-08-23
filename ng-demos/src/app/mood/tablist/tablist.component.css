@@ -1,0 +1,14 @@
+/*put good flex stuff*/
+.container {
+  display: flex; /* or inline-flex */
+  justify-content: space-evenly;
+
+}
+
+.tablist{
+  background-color: orangered;
+  width: 30%;
+  text-align: center;
+  font-size: 50px;
+  border-radius: 5px;
+}
