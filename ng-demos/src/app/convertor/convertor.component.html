@@ -1,3 +1,35 @@
 <p>
   convertor works! {{test()}}
 </p>
+
+
+<div>
+  <form (submit)="onSubmit()" #myForm="ngForm">
+    <input type="number" min="0" required
+           name="distance" [(ngModel)]=" formData.distance" #myInput>
+
+
+    <select [(ngModel)]="selectedGlobalUnit"
+            name="inputUnit">
+      <option *ngFor="let u of globalUnits">{{u}}</option>
+    </select>
+
+    <br/>
+
+    <div>
+      {{result.toPrecision(3)}}
+      <select [(ngModel)]="selectedOutputUnit" name="outputUnit">
+        <option *ngFor="let u of outputUnits">{{u}}</option>
+      </select>
+    </div>
+
+    <div>you converted {{myInput.value}} {{selectedGlobalUnit}} into {{result}} {{selectedOutputUnit}}</div>
+
+
+    <button>OK</button>
+
+
+  </form>
+
+
+</div>
