@@ -5,6 +5,10 @@ import {HttpClient} from "@angular/common/http";
 
 export type User = {
   name: string;
+  admin:boolean;
+  id: number;
+  email: string;
+  statement: string
 }
 
 @Injectable({
@@ -16,6 +20,12 @@ export class ForumService {
 
   users: User[] = [];
 
+  logged=false;
+
+  /*--updateLog(logged){
+    this.logged=logged;
+    console.log("loggedXXXXXXXXXXXXXXXXXXXXXXXXXXXx",logged);
+  }--*/
 
   fetchUsersList() {
 
@@ -31,6 +41,9 @@ export class ForumService {
 function mapAnyToCoin(user: any): User {
   return {
     name: user.name,
-
+    admin:user.admin,
+    id:user.id,
+    email:user.email,
+    statement:user.statement
   }
 }

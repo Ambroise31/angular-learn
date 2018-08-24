@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ForumService} from "../forum.service";
 
 
 
@@ -10,12 +11,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() {
+  constructor(public service:ForumService) {
+    this.service.fetchUsersList();
   }
 
 
 
   ngOnInit() {}
+
+}
 
 
 

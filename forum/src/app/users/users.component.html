@@ -1,5 +1,5 @@
-<ul *ngFor="let u of this.service.user">
-  <li>
-{{u.name}}
-  </li>
-</ul>
+
+  <app-user-c *ngFor ="let u of service.users" [user]="u"></app-user-c>
+
+
+
