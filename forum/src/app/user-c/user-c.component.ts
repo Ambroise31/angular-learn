@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from "../forum.service";
+import {ForumService, User} from "../forum.service";
 
 @Component({
   selector: 'app-user-c',
@@ -9,12 +9,18 @@ import {User} from "../forum.service";
 
 export class UserCComponent implements OnInit {
 
-  @Input() user:User;
+  @Input() user: User;
 
 
-  constructor() { }
+  constructor(public service: ForumService) {
+  }
 
   ngOnInit() {
+
+  }
+
+  isLogged() {
+    this.service.updateLog(this.user.name)
   }
 
 }
