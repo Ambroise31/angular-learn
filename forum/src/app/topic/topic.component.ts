@@ -11,10 +11,14 @@ export class TopicComponent implements OnInit {
   @Input() topic: Topic;
   @Input() comment: IComment;
 
-  constructor(public service:ForumService) { }
+  constructor(public service: ForumService) {
+  }
 
   ngOnInit() {
   }
 
+  setActivTopic() {
+    this.service.updateActivTopic(this.topic);
+  }
 
 }

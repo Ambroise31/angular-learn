@@ -1,12 +1,11 @@
-<div>
+<div (click)="setActivTopic()">
   <h2>Title:   {{this.topic.title}}</h2>
 
   <h3>Topic content:   {{this.topic.content}}</h3>
 </div>
 
-<table>
-
-  <tbody>
+<table *ngIf="this.topic===this.service.activTopic">
+  <tbody >
   <tr *ngFor="let c of topic.comments">
 
     <td>
@@ -19,3 +18,4 @@
   </tbody>
 
 </table>
+

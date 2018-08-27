@@ -22,7 +22,8 @@ import { TopicComponent } from './topic/topic.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

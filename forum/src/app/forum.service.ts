@@ -40,11 +40,13 @@ export class ForumService {
 
   constructor(public http: HttpClient) {
   }
-  page:string = 'topics';
+
+  activTopic: Topic = undefined;
+  page: string = 'topics';
   users: User[] = [];
   topics: Topic[] = [];
   logged: User = undefined;
-  comments: IComment[]=[];
+  comments: IComment[] = [];
 
   updateLog(logged) {
     this.logged = logged;
@@ -70,12 +72,15 @@ export class ForumService {
       })
   }
 
-  updatePage(page){
+  updatePage(page) {
     this.page = page;
-    console.log('change page to',page);
+    console.log('change page to', page);
   }
 
-
+  updateActivTopic(activTopic:Topic) {
+    this.activTopic = activTopic
+    console.log('activTopic set to:', activTopic);
+  }
 
 }
 
