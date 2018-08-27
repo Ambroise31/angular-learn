@@ -2,24 +2,35 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 
-export type User = {
+export interface User {
+  id: number;
   name: string;
-  admin: boolean;
-  id: number;
+  admin?: boolean;
   email: string;
-  statement: string
+  statement?: string; // Ouch !!
 }
-/*
-export type Topic={
+
+export interface Admin extends User {
+  statement: string;
+}
+
+export interface IComment {
   id: number;
-  title:string;
-  content:string;
-  user:User;
-  comment: [];
-
+  content: string;
+  user?: User;
+  anonymous?: boolean;
+  tags?: Array<String>;
+  score?: number;
 }
-*/
 
+export interface Topic {
+  id?: number;
+  title: string;
+  content: string;
+  comments: Array<IComment>;
+  user: User;
+  tags?: Array<String>;
+}
 
 
 @Injectable({
@@ -31,7 +42,7 @@ export class ForumService {
   }
 
   users: User[] = [];
-
+  topics: Topic[] = [];
   logged: User = undefined;
 
   updateLog(logged) {
@@ -40,7 +51,6 @@ export class ForumService {
   }
 
   fetchUsersList() {
-
     this.http
       .get<any[]>('http://localhost:8000/api/users')
       .subscribe((r: any[]) => {
@@ -50,28 +60,16 @@ export class ForumService {
   }
 
 
-  /*fetchTopicList(){
+  fetchTopicList() {
     this.http
       .get<any[]>('http://localhost:8000/api/topics')
-      .suscribe( (r:any[])=> {
-      this.topics=r.map(function (topic:any) {
-        return{
-          id: topic.id,
-          title: topic.title,
-          content: topic.content,
-          user: topic.user,
-          comment: topic.comment,
-          tag: topic.tag
-        };
+      .subscribe((r: any[]) => {
+        this.topics = r.map(topic => mapAnyTopic(topic));
         console.log(this.topics);
       })
-    } )
-
   }
-*/
-
-
 }
+
 
 function mapAnyToCoin(user: any): User {
   return {
@@ -81,5 +79,15 @@ function mapAnyToCoin(user: any): User {
     email: user.email,
     statement: user.statement
   }
+}
 
+function mapAnyTopic(topic: any): Topic {
+  return {
+    id: topic.id,
+    title: topic.title,
+    content: topic.content,
+    user: topic.user,
+    comments: topic.comments,
+    tags: topic.tags
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ForumService} from "../forum.service";
 
 @Component({
   selector: 'app-topicslist',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopicslistComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service:ForumService) {
+    this.service.fetchTopicList();
+  }
 
   ngOnInit() {
   }
