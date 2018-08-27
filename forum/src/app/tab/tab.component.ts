@@ -18,7 +18,7 @@ export class TabComponent implements OnInit {
   }
 
   setUser() {
-    this.service.updatePage('user')
+    this.service.updatePage('users')
   }
 
   setTopic() {
