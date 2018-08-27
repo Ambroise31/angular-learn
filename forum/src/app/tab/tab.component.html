@@ -1,3 +1,10 @@
 <p>
   tab works!
 </p>
+
+<div>
+  <button (click)="setUser()">User</button>
+  <button (click)="setTopic()">Topics</button>
+</div>
+<app-topicslist *ngIf="this.service.page==='topics'"></app-topicslist>
+<app-users *ngIf="this.service.page==='user'"></app-users>

@@ -40,10 +40,11 @@ export class ForumService {
 
   constructor(public http: HttpClient) {
   }
-
+  page:string = 'topics';
   users: User[] = [];
   topics: Topic[] = [];
   logged: User = undefined;
+  comments: IComment[]=[];
 
   updateLog(logged) {
     this.logged = logged;
@@ -68,6 +69,14 @@ export class ForumService {
         console.log(this.topics);
       })
   }
+
+  updatePage(page){
+    this.page = page;
+    console.log('change page to',page);
+  }
+
+
+
 }
 
 
@@ -91,3 +100,4 @@ function mapAnyTopic(topic: any): Topic {
     tags: topic.tags
   }
 }
+

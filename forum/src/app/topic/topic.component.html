@@ -1,3 +1,21 @@
 <div>
-  {{this.topic.title}}
+  <h2>Title:   {{this.topic.title}}</h2>
+
+  <h3>Topic content:   {{this.topic.content}}</h3>
 </div>
+
+<table>
+
+  <tbody>
+  <tr *ngFor="let c of topic.comments">
+
+    <td>
+      {{c.content}}
+    </td>
+    <td>
+      {{c.user?.name}}
+    </td>
+  </tr>
+  </tbody>
+
+</table>

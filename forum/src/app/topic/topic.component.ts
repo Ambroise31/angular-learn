@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ForumService, User} from "../forum.service";
+import {ForumService, IComment, Topic, User} from "../forum.service";
 
 @Component({
   selector: 'app-topic',
@@ -8,11 +8,13 @@ import {ForumService, User} from "../forum.service";
 })
 export class TopicComponent implements OnInit {
 
-  @Input() topic: User;
+  @Input() topic: Topic;
+  @Input() comment: IComment;
 
   constructor(public service:ForumService) { }
 
   ngOnInit() {
   }
+
 
 }
