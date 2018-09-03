@@ -11,6 +11,9 @@ export class TopicComponent implements OnInit {
   @Input() topic: Topic;
   @Input() comment: IComment;
 
+
+  content: string= "";
+
   constructor(public service: ForumService) {
   }
 
@@ -19,6 +22,10 @@ export class TopicComponent implements OnInit {
 
   setActivTopic() {
     this.service.updateActivTopic(this.topic);
+  }
+
+  postAComment(){
+    this.service.createComment(this.content, this.topic)
   }
 
 }

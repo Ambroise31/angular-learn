@@ -2,7 +2,7 @@
 
   <app-user-c *ngFor ="let u of service.users" [user]="u" ></app-user-c>
   <div >
-    logged in: {{this.service.logged}}
+    logged in: {{this.service.logged?.name}}
   </div>
 
 

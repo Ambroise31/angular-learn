@@ -20,7 +20,7 @@ export class UserCComponent implements OnInit {
   }
 
   isLogged() {
-    this.service.updateLog(this.user.name)
+    this.service.updateLog(this.user)
   }
 
 }

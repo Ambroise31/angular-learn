@@ -9,6 +9,7 @@ import { UserCComponent } from './user-c/user-c.component';
 import { TabComponent } from './tab/tab.component';
 import { TopicslistComponent } from './topicslist/topicslist.component';
 import { TopicComponent } from './topic/topic.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TopicComponent } from './topic/topic.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
 
   ],
   providers: [],

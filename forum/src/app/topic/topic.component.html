@@ -1,21 +1,43 @@
 <div (click)="setActivTopic()">
-  <h2>Title:   {{this.topic.title}}</h2>
-
-  <h3>Topic content:   {{this.topic.content}}</h3>
+  <h2>Title: {{this.topic.title}}</h2>
 </div>
 
-<table *ngIf="this.topic===this.service.activTopic">
-  <tbody >
-  <tr *ngFor="let c of topic.comments">
 
-    <td>
-      {{c.content}}
-    </td>
-    <td>
-      {{c.user?.name}}
-    </td>
-  </tr>
-  </tbody>
+<div *ngIf="this.topic===this.service.activTopic">
+  <table>
+    <thead>
 
-</table>
+    <th>
+      Comments
+    </th>
+    <th>
 
+    </th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{this.topic.content}}</td>
+      <td *ngIf="this.topic.content!==''">{{this.topic.user.name}}</td>
+    </tr>
+    <tr *ngFor="let c of topic.comments">
+
+      <td>
+        {{c.content}}
+      </td>
+      <td>
+        {{c.user?.name}}
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+
+  <form (submit)="postAComment()">
+
+    <input type="text" placeholder="New comment" name="newComment" [(ngModel)]="content">
+
+    {{content}}
+
+    <button>Post</button>
+  </form>
+</div>

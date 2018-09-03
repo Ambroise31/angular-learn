@@ -48,6 +48,7 @@ export class ForumService {
   logged: User = undefined;
   comments: IComment[] = [];
 
+
   updateLog(logged) {
     this.logged = logged;
     console.log("loggedXXXXXXXXXXXXXXXXXXXXXXXXXXXx", logged);
@@ -77,9 +78,23 @@ export class ForumService {
     console.log('change page to', page);
   }
 
-  updateActivTopic(activTopic:Topic) {
+  updateActivTopic(activTopic: Topic) {
     this.activTopic = activTopic
     console.log('activTopic set to:', activTopic);
+  }
+
+  createComment(content, topic) {
+    let comment:IComment = {
+      id: -1,
+      content: content,
+      user: this.logged,
+      score: 0
+    };
+
+    this.http
+      .post(`http://localhost:8000/api/comments/topic/${topic.id}`,comment)
+      .subscribe(newComment => topic.comments.push(newComment) );
+
   }
 
 }
